@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "a878a38df9f8735f4e38986f7a1fefc1"
+name = "wishlist"
+handle = "wishlist-286"
+application_url = "https://sparc-serious-raymond-mild.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://sparc-serious-raymond-mild.trycloudflare.com/auth/callback",
+  "https://sparc-serious-raymond-mild.trycloudflare.com/auth/shopify/callback",
+  "https://sparc-serious-raymond-mild.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[pos]
+embedded = false
+
+[build]
+dev_store_url = "nogor-test-store.myshopify.com"
+automatically_update_urls_on_dev = true
